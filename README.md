@@ -23,10 +23,10 @@ It generates a numeric presence/absence matrix CSV and visualizes the concordanc
 ## Dependencies & Installation
 
 This script requires **Python 3.x** and the following data analysis and visualization libraries:
-- `pandas`
-- `numpy`
-- `seaborn`
-- `matplotlib`
+- `pandas=3.0.0`
+- `numpy=2.4.1`
+- `seaborn=0.13.2`
+- `matplotlib-base=3.10.8`
 
 ### Installation
 Install all dependencies using `pip` or `conda`:
