@@ -3,11 +3,11 @@
 This is repo is focused on Shotgun Metagenomics for Pathogen Detection on High-Touch Surfaces
 
 
-## Clinical Validation Assay Analysis & Heatmap Generator
+## Analytical Validation Assay Analysis & Heatmap Generator
 
-`generate_assay_analysis.py` is a Python tool designed to perform clinical validation by comparing metagenomic sequencing classification results (Kraken2 report files) against standard clinical diagnostic assay results (e.g., QIAstat-Dx assays). 
+`generate_assay_analysis.py` is a Python tool designed to perform validation by comparing metagenomic sequencing classification results (Kraken2 report files) against standard clinical diagnostic assay results (e.g., QIAstat-Dx assays). 
 
-It generates a numeric presence/absence matrix CSV and visualizes the concordance between metagenomic reads and clinical assay findings using a categorized heatmap (True Positive, True Negative, False Positive, False Negative, and No Data).
+It generates a numeric presence/absence matrix CSV and visualizes the concordance between metagenomic reads and assay findings using a categorized heatmap (True Positive, True Negative, False Positive, False Negative, and No Data).
 
 ---
 
@@ -49,7 +49,7 @@ The script uses Python's standard `argparse` module. All arguments have built-in
 | Parameter | Type | Default Value | Description |
 | :--- | :--- | :--- | :--- |
 | `--targets` | `str` | `target_list.txt` | Path to the target list TSV file |
-| `--assay` | `str` | `assay_results.txt` | Path to the clinical assay results TSV file |
+| `--assay` | `str` | `assay_results.txt` | Path to the assay results TSV file |
 | `--reports_dir` | `str` | `.` | Directory containing Kraken report files (`*_report.txt`) |
 | `--out_matrix` | `str` | `pathogen_presence_absence_matrix.csv` | Output filename for presence/absence matrix |
 | `--out_png` | `str` | `heatmap.png` | Output filename for heatmap PNG image |
@@ -59,12 +59,12 @@ The script uses Python's standard `argparse` module. All arguments have built-in
 ## Input Files & Formatting
 
 ### 1. Target List TSV (`--targets`)
-A tab-separated file mapping NCBI Taxonomy IDs from Kraken reports to clinical assay target names.
+A tab-separated file mapping NCBI Taxonomy IDs from Kraken reports to assay target names.
 - **Header**: Skipped by the script (`skiprows=1`), but expects 4 tab-separated columns:
   1. `rank`: Taxonomic rank (e.g. `S`, `G`, `S1`)
   2. `TaxID`: NCBI Taxonomy ID (e.g. `2697049`, `11320`)
   3. `name_kraken_report`: Kraken reference organism name
-  4. `target_name_assay`: Clinical assay target name (e.g. `SARS-CoV-2`, `Influenza A`)
+  4. `target_name_assay`: assay target name (e.g. `SARS-CoV-2`, `Influenza A`)
 
 **Example `target_list.txt` snippet:**
 ```tsv
@@ -75,7 +75,7 @@ G	12059	Enterovirus	Rhinovirus/Enterovirus
 ```
 
 ### 2. Assay Results TSV (`--assay`)
-A tab-separated file detailing positive assay targets for each clinical sample.
+A tab-separated file detailing positive assay targets for each environmental sample.
 - **Format**: 2 tab-separated columns:
   1. `sample_name`: Sample identifier matching the Kraken report prefix (e.g. `CP17`, `HP6`)
   2. `assay_targets`: Comma-separated list of positive target names for that sample (or empty/NA if none)
@@ -110,7 +110,7 @@ python generate_assay_analysis.py \
   --assay assay_results_with_only_mgx_samples.txt \
   --reports_dir ./kraken_reports \
   --out_matrix pathogen_presence_absence_matrix.csv \
-  --out_png clinical_validation_heatmap.png
+  --out_png validation_heatmap.png
 ```
 
 ---
@@ -122,7 +122,7 @@ The script produces two main output artifacts:
 ### 1. Presence/Absence Matrix CSV (`--out_matrix`)
 Contains raw read counts mapped from Kraken2 reports for each target organism across all processed samples alongside target metadata (`rank`, `TaxID`, `name_kraken_report`, `target_name_assay`).
 
-### 2. Clinical Validation Heatmap (`--out_png`)
+### 2. Validation Heatmap (`--out_png`)
 Generates a high-resolution (300 DPI) Seaborn/Matplotlib heatmap plot illustrating concordance between Metagenomic sequencing (Kraken2) and Clinical Assay results:
 
 | Category | Label | Color | Criteria |
