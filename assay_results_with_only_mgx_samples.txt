@@ -1,0 +1,10 @@
+CP18	Adenovirus
+HP6	Rhinovirus/Enterovirus
+AP5	Rhinovirus/Enterovirus
+AP9	Rhinovirus/Enterovirus,SARS-CoV-2
+CP8	SARS-CoV-2
+CP17	SARS-CoV-2,Vibrio cholerae
+CP20	SARS-CoV-2,Enteroaggregative E. coli (EAEC),Cryptosporidium
+HP2	Adenovirus
+HP10	Adenovirus,Enteroaggregative E. coli (EAEC)
+AP7	Coronavirus 229E,Cryptosporidium
