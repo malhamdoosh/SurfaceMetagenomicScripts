@@ -22,7 +22,6 @@ S	11250	human respiratory syncytial virus	Respiratory syncytial virus
 S	208893	Human respiratory syncytial virus A	Respiratory syncytial virus
 S	162145	Human metapneumovirus	Human metapneumovirus
 G	12059	Enterovirus	Rhinovirus/Enterovirus
-S	147711	Rhinovirus A	Rhinovirus/Enterovirus
 S	2104	Mycoplasma pneumoniae	Mycoplasma pneumoniae/ Mesomycoplasma hyopneumoniae
 S	520	Bordetella pertussis	Bordetella pertussis
 S	83558	Chlamydia pneumoniae	Chlamydophila pneumoniae/ Chlamydia pneumoniae
@@ -41,7 +40,6 @@ S	142786	Norovirus GI	Norovirus GI/GII
 G	10912	Rotavirus	Rotavirus A
 G	249588	Mamastrovirus	Astrovirus/ Astroviridae
 G	5806	Cryptosporidium	Cryptosporidium
-S	5807	Cryptosporidium parvum	Cryptosporidium
 null	null	null	Cyclospora cayetanensis
 null	null	null	Entamoeba histolytica
 S	5741	Giardia duodenalis	Giardia lamblia
